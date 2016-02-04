@@ -7,6 +7,18 @@
 
 import UIKit
 
+public class JLLocationPredicateValue {
+    var latitude : Double
+    var longitude : Double
+    var withinMiles : Double
+    
+    init(latitude: Double, longitude: Double, withinMiles: Double){
+        self.latitude = latitude
+        self.longitude = longitude
+        self.withinMiles = withinMiles
+    }
+}
+
 public struct Predicate {
     var lhs : String
     var op: PredicateOperator

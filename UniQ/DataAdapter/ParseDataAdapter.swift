@@ -7,58 +7,138 @@
 //
 
 //import Parse
+import Foundation
 
 public class ParseDataAdapter: DataAdapterProtocol {
-    
-    public func insert<T>(dataSourceEntityName: String, valuesAssignmentBlock assignValues: ((T) -> Void)? ) -> T {
-        let newObject = PFObject(className: dataSourceEntityName)
-        let newObjectAsT = newObject as! T
-        if let assignValues = assignValues {
-            assignValues(newObjectAsT)
-        }
-        do {
-            try newObject.save()
-        }
-        catch let e as NSError {
-            print("ParseDataAdapter.insert error: \(e.localizedDescription)")
-        }
-        return newObjectAsT
-    }
-    
 
+    // Async SELECT
+    public func fetch<T>(dataSourceEntityName: String, predicate: Predicate?, limit: Int?, sortDescriptors: [NSSortDescriptor]?, completion: (result: [T]?, error: NSError?) -> Void){
+        
+        var objects = [PFObject]()
+        let query = PFQuery(className: dataSourceEntityName)
+        
+        if let sortDescriptors = sortDescriptors {
+            query.orderBySortDescriptors(sortDescriptors)
+        }
+        
+        var predLhs = ""
+        var predRhs = ""
+        var predIsEquals = false
+        if let predicate = predicate {
+            buildPredicate(query, predicate: predicate)
+            predLhs = predicate.lhs
+            predRhs = predicate.rhs as! String
+            predIsEquals = predicate.op == PredicateOperator.Equals
+        }
+        
+        var pfError : NSError?
+        ThreadingUtil.inBackground({ () -> Void in
+            do {
+                // Parse has special handling for key field (getObjectWithId)
+                if self.isParseKeyField(predLhs) && predIsEquals {
+                    objects.append(try query.getObjectWithId(predRhs))
+                }
+                else {
+                    objects = try query.findObjects()
+                }
+            }
+            catch let e as NSError {
+                pfError = e
+                print("Error with ParseDataAdapter.fetch(\(dataSourceEntityName)): \(e)")
+            }
+            }) { () -> Void in
+                completion(result: objects.map({item in item as! T}), error: pfError)
+        }
+    }
+    
+    // ASYNC INSERT
+    public func insert<T>(dataSourceEntityName: String, valuesAssignmentBlock assignValues: ((T) -> Void)?,
+        completion: (newEntity: T?, error: NSError?) -> Void){
+            let newObject = PFObject(withoutDataWithClassName: dataSourceEntityName, objectId: nil)
+            let newObjectAsT = newObject as! T
+            assignValues?(newObjectAsT)
+            newObject.saveInBackgroundWithBlock { (saved, error) -> Void in
+                completion(newEntity: newObject as? T, error: error)
+            }
+    }
+    
+    
+    // ASYNC UPDATE
+    public func update<T>(dataSourceEntityName: String, predicate: Predicate?, updateOnlyOne: Bool, valuesAssignmentBlock: ((T) -> Void), completion: (updated: Bool, error: NSError?) -> Void){
+        let query = PFQuery(className: dataSourceEntityName)
+        if let predicate = predicate {
+            buildPredicate(query, predicate: predicate)
+        }
+        
+        query.findObjectsInBackgroundWithBlock {(results, error) -> Void in
+            var updated = false
+            var counter = 0
+            var total = 0
+            let updateGroup  = dispatch_group_create()
+            if error == nil {
+                if let results = results {
+                    total = results.count
+                    for result in results {
+                        valuesAssignmentBlock(result as! T)
+                        dispatch_group_enter(updateGroup)
+                        result.saveInBackgroundWithBlock({ (saved, error) -> Void in
+                            counter++
+                            dispatch_group_leave(updateGroup)
+                        })
+                        if (updateOnlyOne){
+                            break
+                        }
+                    }
+                }
+            }
+            dispatch_group_notify(updateGroup, dispatch_get_main_queue(), { () -> Void in
+                updated = total > 0 &&
+                    updateOnlyOne ? counter == 1 : total == counter
+                completion(updated: updated, error: error)
+            })
+        }
+        
+        
+    }
+    
+    // ASYNC DELETE
+    public func delete(dataSourceEntityName: String, predicate: Predicate?, deleteOnlyOne: Bool, completion: (deleted: Bool, error: NSError?) -> Void) {
 
-    
-    public func update<T>(dataSourceEntityName: String, predicate: Predicate?, updateOnlyOne: Bool, valuesAssignmentBlock: ((T) -> Void)?) -> Int {
-        let pfObject = PFObject(withoutDataWithClassName: dataSourceEntityName, objectId: predicate!.rhs as? String)
-        if let valuesAssignmentBlock = valuesAssignmentBlock {
-            let modelToUpdate = pfObject as! T
-            valuesAssignmentBlock(modelToUpdate)
+        let query = PFQuery(className: dataSourceEntityName)
+        if let predicate = predicate {
+            buildPredicate(query, predicate: predicate)
         }
-        do {
-            try pfObject.save()
+        query.findObjectsInBackgroundWithBlock {(results, error) -> Void in
+            var deleted = false
+            var counter = 0
+            var total = 0
+            let deleteGroup = dispatch_group_create()
+            if error == nil {
+                if let results = results {
+                    total = results.count
+                    for result in results {
+                        dispatch_group_enter(deleteGroup)
+                        result.deleteInBackgroundWithBlock({ (deleted, error) -> Void in
+                             counter++
+                             dispatch_group_leave(deleteGroup)
+                        })
+                        if (deleteOnlyOne){
+                            break
+                        }
+                    }
+                }
+            }
+            dispatch_group_notify(deleteGroup, dispatch_get_main_queue(), { () -> Void in
+                deleted = total > 0 &&
+                          deleteOnlyOne ? counter == 1 : total == counter
+                completion(deleted: deleted, error: error)
+            })
         }
-        catch let e as NSError {
-            print("ParseDataAdapter update<T> error: \(e)")
-            return -1
-        }
-        return 1
-    }
-   
-    public func update<T>(dataSourceEntityName: String, predicateGroup: PredicateGroup?, updateOnlyOne: Bool, valuesAssignmentBlock: ((T) -> Void)?) -> Int {
-        // TODO: Throw NotImplementedException
-        abort()
+
     }
     
-    public func delete(dataSourceEntityName: String, predicate: Predicate?, deleteOnlyOne: Bool) -> Int {
-        // TODO: Throw NotImplementedException
-        abort()
-    }
     
-    public func delete(dataSourceEntityName: String, predicateGroup: PredicateGroup?, deleteOnlyOne: Bool) -> Int {
-        // TODO: Throw NotImplementedException
-        abort()
-    }
-    
+    // MARK: Predicate helpers
     private func isParseKeyField(fieldName: String) -> Bool {
         return fieldName == "id" || fieldName == "objectId"
     }
@@ -119,62 +199,6 @@ public class ParseDataAdapter: DataAdapterProtocol {
     }
     
     
-    public func fetch<T>(dataSourceEntityName: String, predicateGroup: PredicateGroup?, limit: Int?, sortDescriptors: [NSSortDescriptor]?) -> [T] {
-        if let predicateGroup = predicateGroup {
-            var objects = [PFObject]()
-            let query = PFQuery(className: dataSourceEntityName)
-            buildPredicate(query, predicateGroup: predicateGroup)
-            if let _ = sortDescriptors {
-//                assertionFailure("sortDescriptors not yet implemented")
-                query.orderBySortDescriptors(sortDescriptors)
-            }
-            do {
-                objects = try query.findObjects()
-            }
-            catch let e as NSError{
-                print("Error with ParseDataAdapter.fetch(\(dataSourceEntityName)): \(e)")
-            }
-            
-              return objects.map({item in Factory.convert(item)})
-        }
-        else {
-            return fetch(dataSourceEntityName, predicate: nil, limit: nil, sortDescriptors: sortDescriptors)
-        }
-    }
-    
-    
-    public func fetch<T>(dataSourceEntityName: String, predicate: Predicate?, limit: Int?, sortDescriptors: [NSSortDescriptor]?) -> [T] {
-        var objects = [PFObject]()
-        let query = PFQuery(className: dataSourceEntityName)
-        
-        if let sortDescriptors = sortDescriptors {
-            query.orderBySortDescriptors(sortDescriptors)
-        }
-        
-        var predLhs = ""
-        var predRhs = ""
-        var predIsEquals = false
-        if let predicate = predicate {
-            buildPredicate(query, predicate: predicate)
-            predLhs = predicate.lhs
-            predRhs = predicate.rhs as! String
-            predIsEquals = predicate.op == PredicateOperator.Equals
-        }
-        
-        do {
-            if isParseKeyField(predLhs) && predIsEquals {
-                objects.append(try query.getObjectWithId(predRhs))
-            }
-            else {
-                objects = try query.findObjects()
-            }
-        }
-        catch let e as NSError {
-            print("Error with ParseDataAdapter.fetch(\(dataSourceEntityName)): \(e)")
-        }
-
-        return objects.map({item in Factory.convert(item)})
-    }
     
 }
 

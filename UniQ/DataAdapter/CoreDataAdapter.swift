@@ -6,20 +6,18 @@
 //
 
 import CoreData
-
+import UIKit
 
 public class CoreDataAdapter : DataAdapterProtocol
 {
     func getCtx() -> NSManagedObjectContext{
-        // JABE, Nov. 11, 2015: Return dummy instance of NSManagedObjectContext since AppDelegate.managedObjectContext is only available
-        // in XCode projects with CoreData during project creation.
-//        return (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        return NSManagedObjectContext()
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     }
     
     func buildPredicate(predicate: Predicate) -> NSPredicate {
+        // TODO: Expand build predicate to handle other NSPredicate operators.
         var predicateOperator = ""
-        switch predicate.op{
+        switch predicate.op {
         case .Equals:
             predicateOperator = "=="
         default:
@@ -28,117 +26,116 @@ public class CoreDataAdapter : DataAdapterProtocol
         return NSPredicate(format: "\(predicate.lhs)\(predicateOperator)%@", argumentArray: [predicate.rhs!])
     }
     
-    public func insert<T>(dataSourceEntityName: String, valuesAssignmentBlock: ((T) -> Void)? ) -> T {
-        let ctx = getCtx()
-        let entity = NSEntityDescription.insertNewObjectForEntityForName(dataSourceEntityName, inManagedObjectContext: ctx) as! T;
-        if let valuesAssignmentBlock = valuesAssignmentBlock {
-            valuesAssignmentBlock(entity)
-        }
-        do {
-            try ctx.save()
-        }
-        catch let e as NSError {
-            fatalError("CoreDataAdapter.insert: Error inserting entity [\(dataSourceEntityName)]. Details:\(e)")
-        }
+    // Async SELECT
+    public func fetch<T>(dataSourceEntityName: String, predicate: Predicate?, limit: Int?, sortDescriptors: [NSSortDescriptor]?, completion: (result: [T]?, error: NSError?) -> Void){
         
-        return entity
-    }
-  
-    public func update<T>(dataSourceEntityName: String, predicateGroup: PredicateGroup?, updateOnlyOne: Bool = true, valuesAssignmentBlock: ((T) -> Void)?) -> Int {
-        // TODO: Throw NotImplementedException
-        abort()
-    }
-    
-    public func update<T>(dataSourceEntityName: String, predicate: Predicate?, updateOnlyOne: Bool = true, valuesAssignmentBlock: ((T) -> Void)?) -> Int {
-        var updated = 0;
-        let ctx = getCtx()
-        do {
+        var returnedObjects : [T]?
+        var cdError : NSError?
+        ThreadingUtil.inBackground({ () -> Void in
+            var queryResult = [AnyObject]()
             let request = NSFetchRequest(entityName: dataSourceEntityName)
             if let predicate = predicate {
-                request.predicate = buildPredicate(predicate)
+                request.predicate = self.buildPredicate(predicate)
             }
-            if updateOnlyOne {
-                request.fetchLimit = 1
-            }
-            
-            let results = try ctx.executeFetchRequest(request)
-            for result in results {
-                if let valuesAssignmentBlock = valuesAssignmentBlock {
-                    valuesAssignmentBlock(result as! T)
-                }
-                updated++
+            if let limit = limit {
+                request.fetchLimit = limit
             }
             do {
-                try ctx.save()
+                queryResult = try self.getCtx().executeFetchRequest(request)
             }
-            catch let e as NSError {
-                fatalError("CoreDataAdapter.update: Error updating entity [\(dataSourceEntityName)]. Details:\(e)")
+            catch let error as NSError {
+                assertionFailure("CoreDataAdapter.fetch<\(dataSourceEntityName)>: Error querying set. Details: \(error)")
+                cdError = error
             }
+            returnedObjects = queryResult.map({ item in item as! T })
+            }) { () -> Void in
+                completion(result: returnedObjects, error: cdError)
         }
-        catch let e as NSError{
-            print(e)
-        }
-        return updated
-    }
- 
-    public func delete(dataSourceEntityName: String, predicateGroup: PredicateGroup?, deleteOnlyOne: Bool = true) -> Int {
-        // TODO: Throw NotImplementedException
-        abort()
     }
     
-    public func delete(dataSourceEntityName: String, predicate: Predicate?, deleteOnlyOne: Bool = true) -> Int {
-        var deletedCount = 0;
-        let ctx = getCtx()
-        do {
-            let request = NSFetchRequest(entityName: dataSourceEntityName)
-            if let predicate = predicate {
-                request.predicate = buildPredicate(predicate)
-            }
-            if deleteOnlyOne {
-                request.fetchLimit = 1
-            }
-
-            let results = try ctx.executeFetchRequest(request)
-            for result in results {
-                deletedCount++
-                ctx.deleteObject(result as! NSManagedObject)
-                if deleteOnlyOne {
-                    break
+    // Async INSERT
+    public func insert<T>(dataSourceEntityName: String, valuesAssignmentBlock assignValues: ((T) -> Void)?,
+        completion: (newEntity: T?, error: NSError?) -> Void){
+            
+            let ctx = self.getCtx()
+            let entity = NSEntityDescription.insertNewObjectForEntityForName(dataSourceEntityName, inManagedObjectContext: ctx) as! T;
+            assignValues?(entity)
+            var cdError : NSError?
+            ThreadingUtil.inBackground({ () -> Void in
+                do {
+                    try ctx.save()
                 }
+                catch let e as NSError {
+                    cdError = e
+                }
+                }) { () -> Void in
+                    completion(newEntity: entity, error: cdError)
             }
-        }
-        catch let e as NSError{
-            print(e)
-        }
-        return deletedCount
     }
     
-    public func fetch<T>(dataSourceEntityName: String, predicateGroup: PredicateGroup?, limit: Int?) -> [T]{
-        // TODO: Throw NotImplementedException
-        abort()
-    }
-  
-    public func fetch<T>(dataSourceEntityName: String, predicateGroup: PredicateGroup?, limit: Int?, sortDescriptors: [NSSortDescriptor]?) -> [T]{
-        // TODO: Throw NotImplementedException
-        abort()
-    }
-    
-    public func fetch<T>(dataSourceEntityName: String, predicate: Predicate?, limit: Int?, sortDescriptors: [NSSortDescriptor]?) -> [T]{
-        var returnedSet = [AnyObject]()
+    // Async UPDATE
+    public func update<T>(dataSourceEntityName: String, predicate: Predicate?, updateOnlyOne: Bool, valuesAssignmentBlock: ((T) -> Void), completion: (updated: Bool, error: NSError?) -> Void){
+
+        let ctx = getCtx()
+        
         let request = NSFetchRequest(entityName: dataSourceEntityName)
         if let predicate = predicate {
             request.predicate = buildPredicate(predicate)
         }
-        if let limit = limit {
-            request.fetchLimit = limit
+        if updateOnlyOne {
+            request.fetchLimit = 1
         }
-        do {
-            returnedSet = try getCtx().executeFetchRequest(request)
+        var updateOk = false
+        var cdError : NSError?
+        ThreadingUtil.inBackground({ () -> Void in
+            do {
+                let results = try ctx.executeFetchRequest(request)
+                for result in results {
+                    valuesAssignmentBlock(result as! T)
+                }
+                try ctx.save()
+                updateOk = true
+            }
+            catch let e as NSError{
+                cdError = e
+            }
+        
+            }) { () -> Void in
+                    completion(updated: updateOk, error: cdError)
         }
-        catch let error as NSError {
-            assertionFailure("CoreDataAdapter.fetch<\(dataSourceEntityName)>: Error querying set. Details: \(error)")
-        }
-        return returnedSet.map({ item in item as! T })
     }
     
+    // Async DELETE
+    public func delete(dataSourceEntityName: String, predicate: Predicate?, deleteOnlyOne: Bool, completion: (deleted: Bool, error: NSError?) -> Void) {
+        let ctx = getCtx()
+
+        let request = NSFetchRequest(entityName: dataSourceEntityName)
+        if let predicate = predicate {
+            request.predicate = buildPredicate(predicate)
+        }
+        if deleteOnlyOne {
+            request.fetchLimit = 1
+        }
+        
+        var deletedCount = 0;
+        var cdError : NSError?
+        ThreadingUtil.inBackground({ () -> Void in
+            do {
+                let results = try ctx.executeFetchRequest(request)
+                for result in results {
+                    deletedCount++
+                    ctx.deleteObject(result as! NSManagedObject)
+                    if deleteOnlyOne {
+                        break
+                    }
+                }
+                try ctx.save()
+            } catch let e as NSError{
+                cdError = e
+            }
+            }) { () -> Void in
+                completion(deleted: deletedCount > 0, error: cdError)
+        }
+    }
+
 }

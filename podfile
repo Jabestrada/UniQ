@@ -1,0 +1,8 @@
+platform :ios, '8.1'
+
+xcodeproj 'UniQ'
+
+target :UniQ, :exclusive => true do
+    pod 'Parse'
+    pod 'Firebase'
+end

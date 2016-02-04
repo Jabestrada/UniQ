@@ -7,23 +7,70 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FE1E21D1C6362B000FAAE09 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1E21B1C6362B000FAAE09 /* Person.swift */; settings = {ASSET_TAGS = (); }; };
+		0FE1E21E1C6362B000FAAE09 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1E21C1C6362B000FAAE09 /* Person+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		0FE1E2201C63632400FAAE09 /* FirebaseDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1E21F1C63632400FAAE09 /* FirebaseDataAdapter.swift */; settings = {ASSET_TAGS = (); }; };
+		0FE1E2231C63633800FAAE09 /* FirebaseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1E2211C63633800FAAE09 /* FirebaseMapper.swift */; settings = {ASSET_TAGS = (); }; };
+		0FE1E2241C63633800FAAE09 /* PersonFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1E2221C63633800FAAE09 /* PersonFirebase.swift */; settings = {ASSET_TAGS = (); }; };
+		0FE1E2261C63636200FAAE09 /* PersonParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1E2251C63636200FAAE09 /* PersonParse.swift */; settings = {ASSET_TAGS = (); }; };
 		0FEB934F1C5B0225000E1895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB934E1C5B0225000E1895 /* AppDelegate.swift */; };
-		0FEB93511C5B0225000E1895 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB93501C5B0225000E1895 /* ViewController.swift */; };
 		0FEB93541C5B0225000E1895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FEB93521C5B0225000E1895 /* Main.storyboard */; };
 		0FEB93571C5B0225000E1895 /* UniQ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB93551C5B0225000E1895 /* UniQ.xcdatamodeld */; };
 		0FEB93591C5B0225000E1895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FEB93581C5B0225000E1895 /* Assets.xcassets */; };
 		0FEB935C1C5B0225000E1895 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FEB935A1C5B0225000E1895 /* LaunchScreen.storyboard */; };
+		0FEB936F1C5B0677000E1895 /* Predicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB936A1C5B0677000E1895 /* Predicate.swift */; settings = {ASSET_TAGS = (); }; };
+		0FEB93701C5B0677000E1895 /* PredicateOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB936B1C5B0677000E1895 /* PredicateOperator.swift */; settings = {ASSET_TAGS = (); }; };
+		0FEB93711C5B0677000E1895 /* PredicateValueKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB936C1C5B0677000E1895 /* PredicateValueKind.swift */; settings = {ASSET_TAGS = (); }; };
+		0FEB93721C5B0677000E1895 /* SortDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB936D1C5B0677000E1895 /* SortDescriptor.swift */; settings = {ASSET_TAGS = (); }; };
+		0FEB93731C5B0677000E1895 /* UniQProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB936E1C5B0677000E1895 /* UniQProtocol.swift */; settings = {ASSET_TAGS = (); }; };
+		0FEB93791C5B0695000E1895 /* CoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB93751C5B0695000E1895 /* CoreDataAdapter.swift */; settings = {ASSET_TAGS = (); }; };
+		0FEB937A1C5B0695000E1895 /* DataAdapterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB93761C5B0695000E1895 /* DataAdapterProtocol.swift */; settings = {ASSET_TAGS = (); }; };
+		0FEB937B1C5B0695000E1895 /* MediaLibraryDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB93771C5B0695000E1895 /* MediaLibraryDataAdapter.swift */; settings = {ASSET_TAGS = (); }; };
+		0FEB937C1C5B0695000E1895 /* ParseDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB93781C5B0695000E1895 /* ParseDataAdapter.swift */; settings = {ASSET_TAGS = (); }; };
+		0FEB937E1C5B0773000E1895 /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = 0FEB937D1C5B0773000E1895 /* podfile */; settings = {ASSET_TAGS = (); }; };
+		0FF66B741C5B4DEB00E8FDBE /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF66B731C5B4DEB00E8FDBE /* Factory.swift */; settings = {ASSET_TAGS = (); }; };
+		0FF66B9E1C5F379400E8FDBE /* ThreadingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF66B9D1C5F379400E8FDBE /* ThreadingUtil.swift */; settings = {ASSET_TAGS = (); }; };
+		0FF66BC81C620A7200E8FDBE /* AppModelEditorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF66BC61C620A7200E8FDBE /* AppModelEditorDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		0FF66BC91C620A7200E8FDBE /* PersonCommonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF66BC71C620A7200E8FDBE /* PersonCommonExtension.swift */; settings = {ASSET_TAGS = (); }; };
+		0FF66BCC1C620AD100E8FDBE /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF66BCA1C620AD100E8FDBE /* UserListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		0FF66BCD1C620AD100E8FDBE /* UserSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF66BCB1C620AD100E8FDBE /* UserSetupViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		28A6144E0A505FE34F1CFABC /* libPods-UniQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF68EA2917510A314711950 /* libPods-UniQ.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CF68EA2917510A314711950 /* libPods-UniQ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniQ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FE1E21B1C6362B000FAAE09 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = Models/CoreData/Person.swift; sourceTree = "<group>"; };
+		0FE1E21C1C6362B000FAAE09 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Person+CoreDataProperties.swift"; path = "Models/CoreData/Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0FE1E21F1C63632400FAAE09 /* FirebaseDataAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseDataAdapter.swift; path = DataAdapter/FirebaseDataAdapter.swift; sourceTree = "<group>"; };
+		0FE1E2211C63633800FAAE09 /* FirebaseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseMapper.swift; path = Models/Firebase/FirebaseMapper.swift; sourceTree = "<group>"; };
+		0FE1E2221C63633800FAAE09 /* PersonFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonFirebase.swift; path = Models/Firebase/PersonFirebase.swift; sourceTree = "<group>"; };
+		0FE1E2251C63636200FAAE09 /* PersonParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonParse.swift; path = Models/Parse/PersonParse.swift; sourceTree = "<group>"; };
 		0FEB934B1C5B0225000E1895 /* UniQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FEB934E1C5B0225000E1895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0FEB93501C5B0225000E1895 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0FEB93531C5B0225000E1895 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0FEB93561C5B0225000E1895 /* UniQ.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UniQ.xcdatamodel; sourceTree = "<group>"; };
 		0FEB93581C5B0225000E1895 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FEB935B1C5B0225000E1895 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FEB935D1C5B0225000E1895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FEB936A1C5B0677000E1895 /* Predicate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Predicate.swift; path = UniQLib/Predicate.swift; sourceTree = "<group>"; };
+		0FEB936B1C5B0677000E1895 /* PredicateOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PredicateOperator.swift; path = UniQLib/PredicateOperator.swift; sourceTree = "<group>"; };
+		0FEB936C1C5B0677000E1895 /* PredicateValueKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PredicateValueKind.swift; path = UniQLib/PredicateValueKind.swift; sourceTree = "<group>"; };
+		0FEB936D1C5B0677000E1895 /* SortDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SortDescriptor.swift; path = UniQLib/SortDescriptor.swift; sourceTree = "<group>"; };
+		0FEB936E1C5B0677000E1895 /* UniQProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniQProtocol.swift; path = UniQLib/UniQProtocol.swift; sourceTree = "<group>"; };
+		0FEB93751C5B0695000E1895 /* CoreDataAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataAdapter.swift; path = DataAdapter/CoreDataAdapter.swift; sourceTree = "<group>"; };
+		0FEB93761C5B0695000E1895 /* DataAdapterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataAdapterProtocol.swift; path = DataAdapter/DataAdapterProtocol.swift; sourceTree = "<group>"; };
+		0FEB93771C5B0695000E1895 /* MediaLibraryDataAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaLibraryDataAdapter.swift; path = DataAdapter/MediaLibraryDataAdapter.swift; sourceTree = "<group>"; };
+		0FEB93781C5B0695000E1895 /* ParseDataAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseDataAdapter.swift; path = DataAdapter/ParseDataAdapter.swift; sourceTree = "<group>"; };
+		0FEB937D1C5B0773000E1895 /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; };
+		0FF66B6E1C5B4BF900E8FDBE /* UniQ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UniQ-Bridging-Header.h"; sourceTree = "<group>"; };
+		0FF66B731C5B4DEB00E8FDBE /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		0FF66B9D1C5F379400E8FDBE /* ThreadingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThreadingUtil.swift; path = Utils/ThreadingUtil.swift; sourceTree = "<group>"; };
+		0FF66BC61C620A7200E8FDBE /* AppModelEditorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppModelEditorDelegate.swift; path = Models/Common/AppModelEditorDelegate.swift; sourceTree = "<group>"; };
+		0FF66BC71C620A7200E8FDBE /* PersonCommonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonCommonExtension.swift; path = Models/Common/PersonCommonExtension.swift; sourceTree = "<group>"; };
+		0FF66BCA1C620AD100E8FDBE /* UserListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserListTableViewController.swift; path = Views/UserListTableViewController.swift; sourceTree = "<group>"; };
+		0FF66BCB1C620AD100E8FDBE /* UserSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSetupViewController.swift; path = Views/UserSetupViewController.swift; sourceTree = "<group>"; };
+		1A3E9017E5DC0B495231758C /* Pods-UniQ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniQ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UniQ/Pods-UniQ.debug.xcconfig"; sourceTree = "<group>"; };
+		F3CB5F6BD9371CE14922F9BB /* Pods-UniQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniQ.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniQ/Pods-UniQ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28A6144E0A505FE34F1CFABC /* libPods-UniQ.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +88,11 @@
 		0FEB93421C5B0225000E1895 = {
 			isa = PBXGroup;
 			children = (
+				0FEB937D1C5B0773000E1895 /* podfile */,
 				0FEB934D1C5B0225000E1895 /* UniQ */,
 				0FEB934C1C5B0225000E1895 /* Products */,
+				37D79FAA8B8FD45AF7546B42 /* Pods */,
+				11C49BEB825A9FCEF8C7A506 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +107,133 @@
 		0FEB934D1C5B0225000E1895 /* UniQ */ = {
 			isa = PBXGroup;
 			children = (
-				0FEB934E1C5B0225000E1895 /* AppDelegate.swift */,
-				0FEB93501C5B0225000E1895 /* ViewController.swift */,
-				0FEB93521C5B0225000E1895 /* Main.storyboard */,
+				0FF66BAD1C608F7800E8FDBE /* Initialization */,
+				0FF66BAC1C608F6800E8FDBE /* Views */,
+				0FF66B9F1C5F3DA700E8FDBE /* Models */,
+				0FF66B9C1C5F377300E8FDBE /* Utils */,
+				0FEB93741C5B0681000E1895 /* DataAdapter */,
+				0FEB93671C5B0640000E1895 /* UniQLib */,
 				0FEB93581C5B0225000E1895 /* Assets.xcassets */,
-				0FEB935A1C5B0225000E1895 /* LaunchScreen.storyboard */,
 				0FEB935D1C5B0225000E1895 /* Info.plist */,
 				0FEB93551C5B0225000E1895 /* UniQ.xcdatamodeld */,
+				0FF66B6E1C5B4BF900E8FDBE /* UniQ-Bridging-Header.h */,
 			);
 			path = UniQ;
+			sourceTree = "<group>";
+		};
+		0FEB93671C5B0640000E1895 /* UniQLib */ = {
+			isa = PBXGroup;
+			children = (
+				0FEB936A1C5B0677000E1895 /* Predicate.swift */,
+				0FEB936B1C5B0677000E1895 /* PredicateOperator.swift */,
+				0FEB936C1C5B0677000E1895 /* PredicateValueKind.swift */,
+				0FEB936D1C5B0677000E1895 /* SortDescriptor.swift */,
+				0FEB936E1C5B0677000E1895 /* UniQProtocol.swift */,
+			);
+			name = UniQLib;
+			sourceTree = "<group>";
+		};
+		0FEB93741C5B0681000E1895 /* DataAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				0FE1E21F1C63632400FAAE09 /* FirebaseDataAdapter.swift */,
+				0FEB93761C5B0695000E1895 /* DataAdapterProtocol.swift */,
+				0FEB93751C5B0695000E1895 /* CoreDataAdapter.swift */,
+				0FEB93781C5B0695000E1895 /* ParseDataAdapter.swift */,
+				0FEB93771C5B0695000E1895 /* MediaLibraryDataAdapter.swift */,
+			);
+			name = DataAdapter;
+			sourceTree = "<group>";
+		};
+		0FF66B9C1C5F377300E8FDBE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0FF66B731C5B4DEB00E8FDBE /* Factory.swift */,
+				0FF66B9D1C5F379400E8FDBE /* ThreadingUtil.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		0FF66B9F1C5F3DA700E8FDBE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0FF66BC51C620A5E00E8FDBE /* Common */,
+				0FF66BD21C620C5B00E8FDBE /* Firebase */,
+				0FF66BC21C62092A00E8FDBE /* Parse */,
+				0FF66BBD1C6208FB00E8FDBE /* CoreData */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0FF66BAC1C608F6800E8FDBE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0FF66BCA1C620AD100E8FDBE /* UserListTableViewController.swift */,
+				0FF66BCB1C620AD100E8FDBE /* UserSetupViewController.swift */,
+				0FEB93521C5B0225000E1895 /* Main.storyboard */,
+				0FEB935A1C5B0225000E1895 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0FF66BAD1C608F7800E8FDBE /* Initialization */ = {
+			isa = PBXGroup;
+			children = (
+				0FEB934E1C5B0225000E1895 /* AppDelegate.swift */,
+			);
+			name = Initialization;
+			sourceTree = "<group>";
+		};
+		0FF66BBD1C6208FB00E8FDBE /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0FE1E21B1C6362B000FAAE09 /* Person.swift */,
+				0FE1E21C1C6362B000FAAE09 /* Person+CoreDataProperties.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		0FF66BC21C62092A00E8FDBE /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				0FE1E2251C63636200FAAE09 /* PersonParse.swift */,
+			);
+			name = Parse;
+			sourceTree = "<group>";
+		};
+		0FF66BC51C620A5E00E8FDBE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0FF66BC61C620A7200E8FDBE /* AppModelEditorDelegate.swift */,
+				0FF66BC71C620A7200E8FDBE /* PersonCommonExtension.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		0FF66BD21C620C5B00E8FDBE /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				0FE1E2211C63633800FAAE09 /* FirebaseMapper.swift */,
+				0FE1E2221C63633800FAAE09 /* PersonFirebase.swift */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
+		11C49BEB825A9FCEF8C7A506 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CF68EA2917510A314711950 /* libPods-UniQ.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37D79FAA8B8FD45AF7546B42 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1A3E9017E5DC0B495231758C /* Pods-UniQ.debug.xcconfig */,
+				F3CB5F6BD9371CE14922F9BB /* Pods-UniQ.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +243,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FEB93601C5B0225000E1895 /* Build configuration list for PBXNativeTarget "UniQ" */;
 			buildPhases = (
+				2FDBDD73DCB1303701CFAE83 /* Check Pods Manifest.lock */,
 				0FEB93471C5B0225000E1895 /* Sources */,
 				0FEB93481C5B0225000E1895 /* Frameworks */,
 				0FEB93491C5B0225000E1895 /* Resources */,
+				E20F11F6ED531003CE2CEDB1 /* Embed Pods Frameworks */,
+				8DFDA0B01D33A13CC8A6303B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -93,6 +265,7 @@
 		0FEB93431C5B0225000E1895 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "JABE Labs";
 				TargetAttributes = {
@@ -126,20 +299,89 @@
 			files = (
 				0FEB935C1C5B0225000E1895 /* LaunchScreen.storyboard in Resources */,
 				0FEB93591C5B0225000E1895 /* Assets.xcassets in Resources */,
+				0FEB937E1C5B0773000E1895 /* podfile in Resources */,
 				0FEB93541C5B0225000E1895 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2FDBDD73DCB1303701CFAE83 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8DFDA0B01D33A13CC8A6303B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UniQ/Pods-UniQ-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E20F11F6ED531003CE2CEDB1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UniQ/Pods-UniQ-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0FEB93471C5B0225000E1895 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FEB93731C5B0677000E1895 /* UniQProtocol.swift in Sources */,
+				0FEB93791C5B0695000E1895 /* CoreDataAdapter.swift in Sources */,
+				0FEB937A1C5B0695000E1895 /* DataAdapterProtocol.swift in Sources */,
+				0FF66BC91C620A7200E8FDBE /* PersonCommonExtension.swift in Sources */,
+				0FEB937C1C5B0695000E1895 /* ParseDataAdapter.swift in Sources */,
+				0FEB937B1C5B0695000E1895 /* MediaLibraryDataAdapter.swift in Sources */,
+				0FF66BCC1C620AD100E8FDBE /* UserListTableViewController.swift in Sources */,
+				0FE1E2231C63633800FAAE09 /* FirebaseMapper.swift in Sources */,
+				0FEB93711C5B0677000E1895 /* PredicateValueKind.swift in Sources */,
+				0FE1E2241C63633800FAAE09 /* PersonFirebase.swift in Sources */,
+				0FF66BCD1C620AD100E8FDBE /* UserSetupViewController.swift in Sources */,
+				0FEB93701C5B0677000E1895 /* PredicateOperator.swift in Sources */,
+				0FF66B9E1C5F379400E8FDBE /* ThreadingUtil.swift in Sources */,
 				0FEB93571C5B0225000E1895 /* UniQ.xcdatamodeld in Sources */,
-				0FEB93511C5B0225000E1895 /* ViewController.swift in Sources */,
+				0FEB936F1C5B0677000E1895 /* Predicate.swift in Sources */,
+				0FE1E21D1C6362B000FAAE09 /* Person.swift in Sources */,
+				0FE1E2261C63636200FAAE09 /* PersonParse.swift in Sources */,
+				0FEB93721C5B0677000E1895 /* SortDescriptor.swift in Sources */,
+				0FE1E21E1C6362B000FAAE09 /* Person+CoreDataProperties.swift in Sources */,
+				0FE1E2201C63632400FAAE09 /* FirebaseDataAdapter.swift in Sources */,
+				0FF66BC81C620A7200E8FDBE /* AppModelEditorDelegate.swift in Sources */,
 				0FEB934F1C5B0225000E1895 /* AppDelegate.swift in Sources */,
+				0FF66B741C5B4DEB00E8FDBE /* Factory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,23 +492,32 @@
 		};
 		0FEB93611C5B0225000E1895 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A3E9017E5DC0B495231758C /* Pods-UniQ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = UniQ/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jabelabs.UniQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UniQ/UniQ-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		0FEB93621C5B0225000E1895 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3CB5F6BD9371CE14922F9BB /* Pods-UniQ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = UniQ/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jabelabs.UniQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UniQ/UniQ-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -289,6 +540,7 @@
 				0FEB93621C5B0225000E1895 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
