@@ -1,2 +1,3 @@
-Pods/Firebase/Firebase.framework
-Pods/Firebase/libFirebaseStatic.a
+#Pods/Firebase/Firebase.framework
+#Pods/Firebase/libFirebaseStatic.a
+Pods/
