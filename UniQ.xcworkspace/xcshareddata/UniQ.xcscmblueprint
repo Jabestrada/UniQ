@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A4ED94B210E72A01506991E3C94559E35418213E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A4ED94B210E72A01506991E3C94559E35418213E" : 0,
+    "D9CDD930BDEA51C515B11FF7388DDD89247A7281" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "281F52A0-87C7-46AD-A632-81724C76C79F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A4ED94B210E72A01506991E3C94559E35418213E" : "UniQ\/",
+    "D9CDD930BDEA51C515B11FF7388DDD89247A7281" : "UniQ\/UniQ\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "UniQ",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "UniQ.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jabestrada\/UniQ.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A4ED94B210E72A01506991E3C94559E35418213E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Jabestrada\/UniQ.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D9CDD930BDEA51C515B11FF7388DDD89247A7281"
+    }
+  ]
+}
