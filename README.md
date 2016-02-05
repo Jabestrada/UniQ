@@ -22,10 +22,8 @@ The POC in its current form covers Core Data, Parse and Firebase data stores. De
 + Pointer-type fields (such as Parse's PFFile) are not covered. Creating another abstraction layer on top of these field types is highly feasible and certainly doable; may be considered in future updates.
 
 ## Running the project
-1. Download this repo.
-2. Open up a Terminal session on the root of the application (where file named "podfile" also resides).
-3. Run pod install; this may take a while.  I deleted the binaries for Firebase from this repo because they were quite large (around 70 MB). Pulling them via CocoaPods may be faster.
-4. Open UniQ.xcworkspace in XCode. At this point, you'll get compiler errors if you try to build the project. That's because the project contains redundant definitions of the Person class for each data source type. Follow the instructions that follow on how to run the project for each data source type.
+1. Download this repo. This may take awhile since the Firebase libraries significantly bloated the code base.
+2. Open UniQ.xcworkspace in XCode. At this point, you'll get compiler errors if you try to build the project. That's because the project contains redundant definitions of the Person class for each data source type. Follow the instructions that follow on how to run the project for each data source type.
  
 ## General build guidelines
 
