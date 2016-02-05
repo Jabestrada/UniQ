@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0FE1E21D1C6362B000FAAE09 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1E21B1C6362B000FAAE09 /* Person.swift */; settings = {ASSET_TAGS = (); }; };
-		0FE1E21E1C6362B000FAAE09 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1E21C1C6362B000FAAE09 /* Person+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		0FE1E2201C63632400FAAE09 /* FirebaseDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1E21F1C63632400FAAE09 /* FirebaseDataAdapter.swift */; settings = {ASSET_TAGS = (); }; };
-		0FE1E2231C63633800FAAE09 /* FirebaseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1E2211C63633800FAAE09 /* FirebaseMapper.swift */; settings = {ASSET_TAGS = (); }; };
-		0FE1E2241C63633800FAAE09 /* PersonFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1E2221C63633800FAAE09 /* PersonFirebase.swift */; settings = {ASSET_TAGS = (); }; };
-		0FE1E2261C63636200FAAE09 /* PersonParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1E2251C63636200FAAE09 /* PersonParse.swift */; settings = {ASSET_TAGS = (); }; };
+		0F29E2BC1C64535200A519BC /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F29E2BA1C64535200A519BC /* Person.swift */; settings = {ASSET_TAGS = (); }; };
+		0F29E2BD1C64535200A519BC /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F29E2BB1C64535200A519BC /* Person+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		0F29E2C01C6457CD00A519BC /* FirebaseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F29E2BE1C6457CD00A519BC /* FirebaseMapper.swift */; settings = {ASSET_TAGS = (); }; };
+		0F29E2C11C6457CD00A519BC /* PersonFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F29E2BF1C6457CD00A519BC /* PersonFirebase.swift */; settings = {ASSET_TAGS = (); }; };
+		0F29E2C31C6457D900A519BC /* PersonParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F29E2C21C6457D900A519BC /* PersonParse.swift */; settings = {ASSET_TAGS = (); }; };
+		0F29E2C51C6457EC00A519BC /* FirebaseDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F29E2C41C6457EC00A519BC /* FirebaseDataAdapter.swift */; settings = {ASSET_TAGS = (); }; };
 		0FEB934F1C5B0225000E1895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB934E1C5B0225000E1895 /* AppDelegate.swift */; };
 		0FEB93541C5B0225000E1895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FEB93521C5B0225000E1895 /* Main.storyboard */; };
 		0FEB93571C5B0225000E1895 /* UniQ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FEB93551C5B0225000E1895 /* UniQ.xcdatamodeld */; };
@@ -39,12 +39,12 @@
 
 /* Begin PBXFileReference section */
 		0CF68EA2917510A314711950 /* libPods-UniQ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UniQ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0FE1E21B1C6362B000FAAE09 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = Models/CoreData/Person.swift; sourceTree = "<group>"; };
-		0FE1E21C1C6362B000FAAE09 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Person+CoreDataProperties.swift"; path = "Models/CoreData/Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		0FE1E21F1C63632400FAAE09 /* FirebaseDataAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseDataAdapter.swift; path = DataAdapter/FirebaseDataAdapter.swift; sourceTree = "<group>"; };
-		0FE1E2211C63633800FAAE09 /* FirebaseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseMapper.swift; path = Models/Firebase/FirebaseMapper.swift; sourceTree = "<group>"; };
-		0FE1E2221C63633800FAAE09 /* PersonFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonFirebase.swift; path = Models/Firebase/PersonFirebase.swift; sourceTree = "<group>"; };
-		0FE1E2251C63636200FAAE09 /* PersonParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonParse.swift; path = Models/Parse/PersonParse.swift; sourceTree = "<group>"; };
+		0F29E2BA1C64535200A519BC /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = Models/CoreData/Person.swift; sourceTree = "<group>"; };
+		0F29E2BB1C64535200A519BC /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Person+CoreDataProperties.swift"; path = "Models/CoreData/Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0F29E2BE1C6457CD00A519BC /* FirebaseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseMapper.swift; path = Models/Firebase/FirebaseMapper.swift; sourceTree = "<group>"; };
+		0F29E2BF1C6457CD00A519BC /* PersonFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonFirebase.swift; path = Models/Firebase/PersonFirebase.swift; sourceTree = "<group>"; };
+		0F29E2C21C6457D900A519BC /* PersonParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonParse.swift; path = Models/Parse/PersonParse.swift; sourceTree = "<group>"; };
+		0F29E2C41C6457EC00A519BC /* FirebaseDataAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseDataAdapter.swift; path = DataAdapter/FirebaseDataAdapter.swift; sourceTree = "<group>"; };
 		0FEB934B1C5B0225000E1895 /* UniQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FEB934E1C5B0225000E1895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FEB93531C5B0225000E1895 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		0FEB93741C5B0681000E1895 /* DataAdapter */ = {
 			isa = PBXGroup;
 			children = (
-				0FE1E21F1C63632400FAAE09 /* FirebaseDataAdapter.swift */,
+				0F29E2C41C6457EC00A519BC /* FirebaseDataAdapter.swift */,
 				0FEB93761C5B0695000E1895 /* DataAdapterProtocol.swift */,
 				0FEB93751C5B0695000E1895 /* CoreDataAdapter.swift */,
 				0FEB93781C5B0695000E1895 /* ParseDataAdapter.swift */,
@@ -187,8 +187,8 @@
 		0FF66BBD1C6208FB00E8FDBE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				0FE1E21B1C6362B000FAAE09 /* Person.swift */,
-				0FE1E21C1C6362B000FAAE09 /* Person+CoreDataProperties.swift */,
+				0F29E2BA1C64535200A519BC /* Person.swift */,
+				0F29E2BB1C64535200A519BC /* Person+CoreDataProperties.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -196,7 +196,7 @@
 		0FF66BC21C62092A00E8FDBE /* Parse */ = {
 			isa = PBXGroup;
 			children = (
-				0FE1E2251C63636200FAAE09 /* PersonParse.swift */,
+				0F29E2C21C6457D900A519BC /* PersonParse.swift */,
 			);
 			name = Parse;
 			sourceTree = "<group>";
@@ -213,8 +213,8 @@
 		0FF66BD21C620C5B00E8FDBE /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				0FE1E2211C63633800FAAE09 /* FirebaseMapper.swift */,
-				0FE1E2221C63633800FAAE09 /* PersonFirebase.swift */,
+				0F29E2BE1C6457CD00A519BC /* FirebaseMapper.swift */,
+				0F29E2BF1C6457CD00A519BC /* PersonFirebase.swift */,
 			);
 			name = Firebase;
 			sourceTree = "<group>";
@@ -359,26 +359,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F29E2C31C6457D900A519BC /* PersonParse.swift in Sources */,
 				0FEB93731C5B0677000E1895 /* UniQProtocol.swift in Sources */,
 				0FEB93791C5B0695000E1895 /* CoreDataAdapter.swift in Sources */,
 				0FEB937A1C5B0695000E1895 /* DataAdapterProtocol.swift in Sources */,
+				0F29E2C51C6457EC00A519BC /* FirebaseDataAdapter.swift in Sources */,
 				0FF66BC91C620A7200E8FDBE /* PersonCommonExtension.swift in Sources */,
 				0FEB937C1C5B0695000E1895 /* ParseDataAdapter.swift in Sources */,
 				0FEB937B1C5B0695000E1895 /* MediaLibraryDataAdapter.swift in Sources */,
 				0FF66BCC1C620AD100E8FDBE /* UserListTableViewController.swift in Sources */,
-				0FE1E2231C63633800FAAE09 /* FirebaseMapper.swift in Sources */,
 				0FEB93711C5B0677000E1895 /* PredicateValueKind.swift in Sources */,
-				0FE1E2241C63633800FAAE09 /* PersonFirebase.swift in Sources */,
 				0FF66BCD1C620AD100E8FDBE /* UserSetupViewController.swift in Sources */,
 				0FEB93701C5B0677000E1895 /* PredicateOperator.swift in Sources */,
 				0FF66B9E1C5F379400E8FDBE /* ThreadingUtil.swift in Sources */,
 				0FEB93571C5B0225000E1895 /* UniQ.xcdatamodeld in Sources */,
 				0FEB936F1C5B0677000E1895 /* Predicate.swift in Sources */,
-				0FE1E21D1C6362B000FAAE09 /* Person.swift in Sources */,
-				0FE1E2261C63636200FAAE09 /* PersonParse.swift in Sources */,
+				0F29E2C01C6457CD00A519BC /* FirebaseMapper.swift in Sources */,
 				0FEB93721C5B0677000E1895 /* SortDescriptor.swift in Sources */,
-				0FE1E21E1C6362B000FAAE09 /* Person+CoreDataProperties.swift in Sources */,
-				0FE1E2201C63632400FAAE09 /* FirebaseDataAdapter.swift in Sources */,
+				0F29E2C11C6457CD00A519BC /* PersonFirebase.swift in Sources */,
+				0F29E2BC1C64535200A519BC /* Person.swift in Sources */,
+				0F29E2BD1C64535200A519BC /* Person+CoreDataProperties.swift in Sources */,
 				0FF66BC81C620A7200E8FDBE /* AppModelEditorDelegate.swift in Sources */,
 				0FEB934F1C5B0225000E1895 /* AppDelegate.swift in Sources */,
 				0FF66B741C5B4DEB00E8FDBE /* Factory.swift in Sources */,

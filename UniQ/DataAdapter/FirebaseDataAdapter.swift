@@ -31,7 +31,7 @@ public class FirebaseDataAdapter : DataAdapterProtocol  {
     //                               |------ lastName  [lastNameValue]
     
     // TODO: Replace URL below with yours.
-    static var rootUrl = "https://intense-inferno-5119.firebaseio.com"
+    static var rootUrl = "https:<YOUR_FIREBASE_URL>"
     
     // MARK: DataAdapterProtocol
     // SELECT

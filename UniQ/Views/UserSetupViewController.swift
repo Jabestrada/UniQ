@@ -23,6 +23,7 @@ class UserSetupViewController: UIViewController, AppModelEditor {
             self.personModel = personModel
             fillUI(personModel)
         }
+        self.navigationItem.title = self.isNew() ? "New" : "Edit"
         
         let saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain,
             target: self, action: "onSaveTapped")
